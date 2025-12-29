@@ -1,72 +1,83 @@
-*{
-    margin:0;
+* {
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html,body{
-    width:100%;
-    height:100%;
+html, body {
+    width: 100%;
+    min-height: 100vh; /* Ensures background covers full height even if content grows */
     background-image: url("assets/img.jfif");
     background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
 }
 
-#main{
-    justify-items: center;
+#main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
 }
 
-#header{
-    margin-bottom: 50px;
-    width:50%;
+#header, #card {
+    width: 90%; /* Default for mobile */
+    max-width: 600px; /* Limits width on desktop */
     border-radius: 15px;
-    background-color:antiquewhite;
+    background-color: antiquewhite;
     display: flex;
     flex-direction: column;
     justify-content: center; 
     align-items: center;
     text-align: center;
-    padding:10px ;
+    padding: 20px;
+    margin-bottom: 20px;
 }
 
-#card{
-    width:30%;
-    border-radius: 15px;
-    background-color:antiquewhite;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-    align-items: center;
-    text-align: center;
-    padding:10px;
-}
-
-
-#input{
+#input {
     display: flex;
     justify-content: center;
-    padding:30px 50px;
+    align-items: center;
+    padding: 20px 0;
     column-gap: 15px;
+    width: 100%;
 }
 
-#input input{
+#input input {
+    flex: 1; /* Allows input to grow and fill space */
+    max-width: 300px;
+    height: 45px;
     border-radius: 10px;
+    border: 1px solid #ccc;
     text-align: center;
-    padding: 0px 15px;
     background-color: aliceblue;
 }
 
-.search{
-    width:50px;
-    height:50px;
+.search {
+    width: 45px;
+    height: 45px;
     background-image: url("assets/search.jpg");
     background-size: cover;
-    border-radius: 50px;
-    padding: 10px 15px;
+    border-radius: 50%; /* Keeps it circular */
+    cursor: pointer;
+    flex-shrink: 0; /* Prevents button from squishing */
 }
 
-.weather-info{
-    width:50%;
+.weather-info {
+    width: 100%; /* Full width of its container (#card) */
+    max-width: 400px;
     background-color: aliceblue;
     border-radius: 10px;
-    padding: 10px 10px;
+    padding: 15px;
+}
+
+/* --- Media Queries for Larger Screens --- */
+@media (min-width: 768px) {
+    #header {
+        width: 60%;
+    }
+    
+    #card {
+        width: 40%;
+    }
 }
